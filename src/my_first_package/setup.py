@@ -1,14 +1,14 @@
 from setuptools import find_packages, setup
 
-package_name = "my_first_package"
+PACKAGE_NAME = "my_first_package"
 
 setup(
-    name=package_name,
+    name=PACKAGE_NAME,
     version="0.0.0",
     packages=find_packages(exclude=["test"]),
     data_files=[
-        ("share/ament_index/resource_index/packages", ["resource/" + package_name]),
-        ("share/" + package_name, ["package.xml"]),
+        ("share/ament_index/resource_index/packages", ["resource/" + PACKAGE_NAME]),
+        ("share/" + PACKAGE_NAME, ["package.xml"]),
     ],
     install_requires=["setuptools"],
     zip_safe=True,
@@ -22,6 +22,10 @@ setup(
         ],
     },
     entry_points={
-        "console_scripts": ["my_first_node = my_first_package.my_first_node:main"],
+        # node's main method path
+        "console_scripts": [
+            # executable_name = pkg_name.file_name:function_name
+            "my_subscriber = my_first_package.my_subscriber:main",
+        ],
     },
 )
