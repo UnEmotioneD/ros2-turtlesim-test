@@ -26,6 +26,7 @@ setup(
         "console_scripts": [
             # executable_name = pkg_name.file_name:function_name
             "my_subscriber = my_first_package.my_subscriber:main",
+            "my_publisher = my_first_package.my_publisher:main",
         ],
     },
 )
