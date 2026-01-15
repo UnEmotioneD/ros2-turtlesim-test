@@ -28,10 +28,8 @@ def main(args=None) -> None:
     try:
         rp.spin(turtlesim_publisher)
     finally:
-        pass  # this is a placeholder
-
-    turtlesim_publisher.destroy_node()
-    rp.shutdown()
+        turtlesim_publisher.destroy_node()
+        rp.shutdown()
 
 
 if __name__ == "__main__":

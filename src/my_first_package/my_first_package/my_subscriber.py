@@ -30,11 +30,10 @@ def main(args=None) -> None:
         # keep node alive to process callback
         rp.spin(turtlesim_subscriber)
     finally:
-        pass  # handle Ctrl+C gracefully
-
-    # cleanup resource and shutdown
-    turtlesim_subscriber.destroy_node()
-    rp.shutdown()
+        # handle Ctrl+C gracefully
+        # cleanup resource and shutdown
+        turtlesim_subscriber.destroy_node()
+        rp.shutdown()
 
 
 if __name__ == "__main__":

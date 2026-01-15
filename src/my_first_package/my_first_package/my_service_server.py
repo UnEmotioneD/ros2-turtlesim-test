@@ -49,12 +49,11 @@ class MultiSpawning(Node):
 
 def main(args=None) -> None:
     rp.init(args=args)
-
     multi_spawn = MultiSpawning()
-
     try:
         rp.spin(multi_spawn)
     finally:
+        multi_spawn.destroy_node()
         rp.shutdown()
 
 
