@@ -14,6 +14,9 @@ class CmdAndPose(Node):
         self.sub_cmd_vel = self.create_subscription(
             Twist, "/turtle1/cmd_vel", self.callback_cmd, 10
         )
+        self.timer_period = 1.0
+        self.timer = self.create_timer(self.timer_period, self.timer_callback)
+        self.publisher = self.create_publisher(CmdAndPoseVel, "/cmd_and_pose", 10)
         self.cmd_pose = CmdAndPoseVel()
 
     def callback_pose(self, msg):
@@ -26,6 +29,9 @@ class CmdAndPose(Node):
         self.cmd_pose.cmd_vel_linear = msg.linear.x
         self.cmd_pose.cmd_vel_angular = msg.angular.z
         print(self.cmd_pose)
+
+    def timer_callback(self):
+        self.publisher.publish(self.cmd_pose)
 
 
 def main(args=None) -> None:
