@@ -27,6 +27,7 @@ setup(
             # executable_name = pkg_name.file_name:function_name
             "my_subscriber = my_first_package.my_subscriber:main",
             "my_publisher = my_first_package.my_publisher:main",
+            "turtle_cmd_and_pose = my_first_package.turtle_cmd_and_pose:main",
         ],
     },
 )
