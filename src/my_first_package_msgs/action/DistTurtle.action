@@ -7,7 +7,7 @@ float32 dist
 float32 pos_x
 float32 pos_y
 float32 pos_theta
-float32 result_delta
+float32 result_dist
 ---
 # Feedback
 float32 remained_dist
