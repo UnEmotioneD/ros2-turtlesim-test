@@ -1,3 +1,5 @@
+import time
+
 import rclpy as rp
 from my_first_package_msgs.action import DistTurtle
 from rclpy.action.server import ActionServer
@@ -12,6 +14,12 @@ class DistTurtleServer(Node):
         )
 
     def execute_callback(self, goal_handle):
+        feedback_msg = DistTurtle.Feedback()
+        for n in range(0, 10):
+            feedback_msg.remained_dist = float(n)
+            goal_handle.publish_feedback(feedback_msg)
+            time.sleep(0.5)
+
         goal_handle.succeed()
         result = DistTurtle.Result()
         return result
